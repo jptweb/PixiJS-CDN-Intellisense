@@ -1,0 +1,31 @@
+{
+  "name": "pixijs-cdn-intellisense",
+  "displayName": "PixiJS CDN Intellisense",
+  "description": "Adds PixiJS v8 intellisense to plain-JS projects that load PixiJS via the CDN (no npm/bundler required).",
+  "version": "0.0.1",
+  "publisher": "jptakats",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": [
+    "workspaceContains:**/*.html",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "pixijsCdn.enable",
+        "title": "PixiJS: Enable Intellisense in this Folder"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "pixijsCdn.enable",
+          "when": "explorerResourceIsFolder",
+          "group": "2_workspace"
+        }
+      ]
+    }
+  }
+}
